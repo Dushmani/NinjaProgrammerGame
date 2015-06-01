@@ -1,1 +1,2 @@
 5/30 -  Project Created (Dev K)
+6/1 - Player sprites finished (Dev A)
