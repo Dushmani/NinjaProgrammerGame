@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 42e6fbc4b3a9e6b49aeda116c6e20b25
-timeCreated: 1433165443
+timeCreated: 1433339817
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Level3Background_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -48,7 +49,17 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Level3Background_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 930
+        height: 566
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

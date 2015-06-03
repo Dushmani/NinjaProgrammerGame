@@ -10,7 +10,6 @@ public class BackgroundColliderController : MonoBehaviour
     public void Start()
     {
         var backgrounds = GameObject.FindGameObjectsWithTag("Background");
-        
         this.numberOfBackgrounds = backgrounds.Length;
 
         if(this.numberOfBackgrounds<2)
@@ -21,16 +20,16 @@ public class BackgroundColliderController : MonoBehaviour
             = Mathf.Abs(
                 backgrounds[0].transform.position.x
                 - backgrounds[1].transform.position.x);
+
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.CompareTag("Background"))
         {
-            Debug.Log(distanceBetweenBackgrounds);
             var background = collider.gameObject;
             var bgPosition = background.transform.position;
-            bgPosition.x += this.numberOfBackgrounds * distanceBetweenBackgrounds;
+            bgPosition.x += this.numberOfBackgrounds * this.distanceBetweenBackgrounds;
             background.transform.position = bgPosition;
         }
 
