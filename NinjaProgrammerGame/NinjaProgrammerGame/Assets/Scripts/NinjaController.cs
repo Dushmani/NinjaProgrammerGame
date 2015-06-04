@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class NinjaController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    
 
     private bool didClick;
     private bool isDead;
@@ -13,11 +13,17 @@ public class NinjaController : MonoBehaviour
     public float clickSpeed = 100f;
     public float forwardSpeed = 15f;
     public float maxSpeed = 100f;
+    public float fallingSpeed = 0.001f;
+    public float floorPossition;
 
     public void Start()
     {
         this.rb = this.GetComponent<Rigidbody2D>();
         this.animator = this.GetComponent<Animator>();
+
+        var floorObj = GameObject.FindGameObjectsWithTag("Floor");
+        floorPossition = floorObj[0].transform.position.y;
+        Debug.Log(floorPossition);
     }
 
     public void Update()
@@ -25,6 +31,14 @@ public class NinjaController : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && !this.isDead)
         {
             this.didClick = true;
+        }
+        else if(this.isDead && this.transform.position.y > floorPossition)
+        {
+            didClick = false;
+            var deadPossition = this.transform.position;
+            deadPossition.y = this.transform.position.y - fallingSpeed;
+            this.transform.position = deadPossition;
+           //FIXED "Dieing in the Air"
         }
     }
     public void FixedUpdate()
@@ -54,8 +68,7 @@ public class NinjaController : MonoBehaviour
         {
             this.isDead = true;
             this.animator.SetBool("NinjaDead", true);
-
-            // fix dieing in air
+            forwardSpeed = 0;
         }
 
 
