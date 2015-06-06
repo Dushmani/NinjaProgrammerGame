@@ -20,8 +20,8 @@ public class LoopController : MonoBehaviour
 
         RandomizeEnemies(enemies);
 
-        if (this.numberOfBackgrounds < 2
-            || this.numberOfEnemies < 2)
+        if(this.numberOfBackgrounds<2 
+            || this.numberOfEnemies <2)
         {
             throw new System.InvalidOperationException("You must have atleast 2 backgrounds or Enemies");
         }
@@ -37,16 +37,16 @@ public class LoopController : MonoBehaviour
         {
             Debug.Log("nq be");
         }
-        if (collider.CompareTag("Background")
+        if(collider.CompareTag("Background") 
             || collider.CompareTag("Enemy"))
         {
             var go = collider.gameObject;
             var originalPossition = go.transform.position;
 
-            if (collider.CompareTag("Enemy"))
+            if(collider.CompareTag("Enemy"))
             {
-                originalPossition.x
-                    += this.numberOfEnemies
+                originalPossition.x 
+                    += this.numberOfEnemies 
                     * this.distanceBetweenEnemies;
 
                 float randomY;
@@ -54,7 +54,7 @@ public class LoopController : MonoBehaviour
                 {
 
                     randomY = Random.Range(-1.5f, 0);
-
+                    
                 }
                 else            //Mark Knight - DOWNPIPE (music)
                 {
@@ -64,15 +64,15 @@ public class LoopController : MonoBehaviour
                 originalPossition.y = randomY;
                 this.upperEnemy = !this.upperEnemy;
             }
-            else if (collider.CompareTag("Background"))
+            else if(collider.CompareTag("Background"))
             {
-
-                originalPossition.x
-                    += this.numberOfBackgrounds
-                    * this.distanceBetweenBackgrounds;
+                
+            originalPossition.x 
+                += this.numberOfBackgrounds 
+                * this.distanceBetweenBackgrounds;
             }
-            go.transform.position = originalPossition;
-
+                go.transform.position = originalPossition;
+            
         }
 
 
@@ -87,21 +87,21 @@ public class LoopController : MonoBehaviour
     private void RandomizeEnemies(GameObject[] enemies)
     {
         int count = 0;
-        for (int i = 1; i < enemies.Length; i++)
+        for (int i = 1; i < enemies.Length ; i++)
         {
             count++;
             var currentEnemy = enemies[i];
             float randomY;
 
-            if (count % 2 == 0) //upper enemy
+            if(count%2 == 0) //upper enemy
             {
 
-                randomY = Random.Range(-1.5f, 0);
+                 randomY = Random.Range(-1.5f, 0);
             }
             else            //Mark Knight - DOWNPIPE (music)
             {
 
-                randomY = Random.Range(1, 4.5f);
+                 randomY = Random.Range(1, 4.5f);
             }
             var enemyPossition = currentEnemy.transform.position;
             enemyPossition.y = randomY;
