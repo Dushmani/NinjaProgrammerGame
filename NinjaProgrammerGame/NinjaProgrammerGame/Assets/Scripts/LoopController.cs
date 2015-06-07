@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-//NEED NAME FIX
 public class LoopController : MonoBehaviour
 {
     private int numberOfBackgrounds;
@@ -13,40 +12,44 @@ public class LoopController : MonoBehaviour
     public void Start()
     {
         var backgrounds = GameObject.FindGameObjectsWithTag("Background");
-        this.numberOfBackgrounds = backgrounds.Length;
+        var enemies = GameObject.FindGameObjectsWithTag("Losh");
 
-        var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        this.numberOfBackgrounds = backgrounds.Length;
         this.numberOfEnemies = enemies.Length;
 
         RandomizeEnemies(enemies);
 
-        if(this.numberOfBackgrounds<2 
-            || this.numberOfEnemies <2)
+        if (this.numberOfBackgrounds < 2
+            || this.numberOfEnemies < 2)
         {
             throw new System.InvalidOperationException("You must have atleast 2 backgrounds or Enemies");
         }
         this.distanceBetweenBackgrounds
-            = this.DistanceBetweenObjects(backgrounds[0], backgrounds[1]);
+            = this.DistanceBetweenObjects(backgrounds);
         this.distanceBetweenEnemies
-           = this.DistanceBetweenObjects(enemies[0], enemies[1]);
+            = this.DistanceBetweenObjects(enemies);
+            
+
+        Debug.Log(distanceBetweenEnemies);
+        Debug.Log(numberOfEnemies);
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Enemy"))
+        if (collider.CompareTag("Losh"))
         {
             Debug.Log("nq be");
         }
-        if(collider.CompareTag("Background") 
-            || collider.CompareTag("Enemy"))
+        if (collider.CompareTag("Background")
+            || collider.CompareTag("Losh"))
         {
             var go = collider.gameObject;
             var originalPossition = go.transform.position;
 
-            if(collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Losh"))
             {
-                originalPossition.x 
-                    += this.numberOfEnemies 
+                originalPossition.x
+                    += this.numberOfEnemies
                     * this.distanceBetweenEnemies;
 
                 float randomY;
@@ -54,7 +57,7 @@ public class LoopController : MonoBehaviour
                 {
 
                     randomY = Random.Range(-1.5f, 0);
-                    
+
                 }
                 else            //Mark Knight - DOWNPIPE (music)
                 {
@@ -64,15 +67,15 @@ public class LoopController : MonoBehaviour
                 originalPossition.y = randomY;
                 this.upperEnemy = !this.upperEnemy;
             }
-            else if(collider.CompareTag("Background"))
+            else if (collider.CompareTag("Background"))
             {
-                
-            originalPossition.x 
-                += this.numberOfBackgrounds 
-                * this.distanceBetweenBackgrounds;
+
+                originalPossition.x
+                    += this.numberOfBackgrounds
+                    * this.distanceBetweenBackgrounds;
             }
-                go.transform.position = originalPossition;
-            
+            go.transform.position = originalPossition;
+
         }
 
 
@@ -86,27 +89,45 @@ public class LoopController : MonoBehaviour
 
     private void RandomizeEnemies(GameObject[] enemies)
     {
+        //FIX FIRST 0 ENEMIES SPAWN
         int count = 0;
-        for (int i = 1; i < enemies.Length ; i++)
+
+        for (int i = 1; i < enemies.Length; i++)
         {
             count++;
-            var currentEnemy = enemies[i];
+            var currentPipe = enemies[i];
             float randomY;
-
-            if(count%2 == 0) //upper enemy
+            if (count % 2 == 0) // upper Enemy
             {
-
-                 randomY = Random.Range(-1.5f, 0);
+                randomY = Random.Range(1.5f, 3);
             }
-            else            //Mark Knight - DOWNPIPE (music)
+            else // Mark Knight - DOWNPIPE (D-ramiraz remix)
             {
-
-                 randomY = Random.Range(1, 4.5f);
+                randomY = Random.Range(-1, 0.5f);
             }
-            var enemyPossition = currentEnemy.transform.position;
-            enemyPossition.y = randomY;
-            currentEnemy.transform.position = enemyPossition;
+
+            var pipePosition = currentPipe.transform.position;
+            pipePosition.y = randomY;
+            currentPipe.transform.position = pipePosition;
         }
+    }
+    private float DistanceBetweenObjects(GameObject[] gameObjects)
+    {
+        float minDistance = float.MaxValue;
+
+        for (int i = 1; i < gameObjects.Length; i++)
+        {
+            var currentDistance = Mathf.Abs(
+                gameObjects[i - 1].transform.position.x
+                - gameObjects[i].transform.position.x);
+
+            if (currentDistance < minDistance)
+            {
+                minDistance = currentDistance;
+            }
+        }
+
+        return minDistance;
     }
 
 }
