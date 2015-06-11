@@ -61,10 +61,10 @@ public class NinjaController : MonoBehaviour
 
         }
     }
-    // LTB BULLET CONTROLLER NEED REPAIR, PON0 BONAK MRUSEN
     public void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.CompareTag("Losh"))
+        if (collider.gameObject.CompareTag("Losh")
+            || collider.gameObject.CompareTag("Egg"))
         {
             this.isDead = true;
             this.animator.SetBool("NinjaDead", true);

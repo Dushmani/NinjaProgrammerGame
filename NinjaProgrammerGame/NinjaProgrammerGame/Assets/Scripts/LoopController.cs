@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 public class LoopController : MonoBehaviour
 {
+    private float bossPositionX;
+    private float bossPositionY;
+
     private int numberOfBackgrounds;
     private float distanceBetweenBackgrounds;
 
     private int numberOfEnemies;
     private float distanceBetweenEnemies;
+
     private bool upperEnemy;
-    private bool downEnemy;
+
 
     public void Start()
     {
+
         var backgrounds = GameObject.FindGameObjectsWithTag("Background");
         var enemies = GameObject.FindGameObjectsWithTag("Losh");
 
@@ -28,53 +33,57 @@ public class LoopController : MonoBehaviour
             = this.DistanceBetweenObjects(backgrounds);
         this.distanceBetweenEnemies
             = this.DistanceBetweenObjects(enemies);
-            
 
-        Debug.Log(distanceBetweenEnemies);
-        Debug.Log(numberOfEnemies);
+        Debug.Log(bossPositionX);
+        Debug.Log(bossPositionY);
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Losh"))
-        {
-            Debug.Log("nq be");
-        }
+
         if (collider.CompareTag("Background")
-            || collider.CompareTag("Losh"))
+            || collider.CompareTag("Losh")
+            || collider.CompareTag("Egg"))
         {
+
             var go = collider.gameObject;
-            var originalPossition = go.transform.position;
+            var originalPosition = go.transform.position;
 
             if (collider.CompareTag("Losh"))
             {
-                originalPossition.x
-                    += this.numberOfEnemies
-                    * this.distanceBetweenEnemies;
+                originalPosition.x +=
+                     this.numberOfEnemies
+                     * this.distanceBetweenEnemies;
 
                 float randomY;
-                if (upperEnemy) //upper enemy
+
+                if (this.upperEnemy)
                 {
-
-                    randomY = Random.Range(-1.5f, 0);
-
+                    randomY = Random.Range(1.5f, 3);
                 }
-                else            //Mark Knight - DOWNPIPE (music)
+                else
                 {
-
-                    randomY = Random.Range(1, 4.5f);
+                    randomY = Random.Range(-1, 0.5f);
                 }
-                originalPossition.y = randomY;
+                originalPosition.y = randomY;
+
                 this.upperEnemy = !this.upperEnemy;
             }
-            else if (collider.CompareTag("Background"))
+            else if (collider.CompareTag("Egg"))
             {
-
-                originalPossition.x
+                originalPosition.x =
+                    GameObject.FindGameObjectWithTag("Boss").transform.position.x;
+                originalPosition.y =
+                    GameObject.FindGameObjectWithTag("Boss").transform.position.y;
+            }
+            else
+            {
+                originalPosition.x
                     += this.numberOfBackgrounds
                     * this.distanceBetweenBackgrounds;
             }
-            go.transform.position = originalPossition;
+            go.transform.position = originalPosition;
+
 
         }
 
@@ -99,11 +108,11 @@ public class LoopController : MonoBehaviour
             float randomY;
             if (count % 2 == 0) // upper Enemy
             {
-                randomY = Random.Range(1.5f, 3);
+                randomY = Random.Range(-0.5f, 2);
             }
             else // Mark Knight - DOWNPIPE (D-ramiraz remix)
             {
-                randomY = Random.Range(-1, 0.5f);
+                randomY = Random.Range(-2.5f, 0);
             }
 
             var pipePosition = currentPipe.transform.position;
