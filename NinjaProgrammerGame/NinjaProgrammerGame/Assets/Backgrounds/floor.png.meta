@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1e96671f28c7883409a73627439c9367
-timeCreated: 1434114211
+guid: 87969980a7c7ae146b766be2b9a7b179
+timeCreated: 1434114281
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Level4Background_0
+    21300000: floor_0
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -50,16 +50,16 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: Level4Background_0
+    - name: floor_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 289
         y: 0
-        width: 978
-        height: 550
-      alignment: 9
-      pivot: {x: .00226392434, y: .179487154}
-      border: {x: 0, y: 99, z: 0, w: 0}
+        width: 223
+        height: 512
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
