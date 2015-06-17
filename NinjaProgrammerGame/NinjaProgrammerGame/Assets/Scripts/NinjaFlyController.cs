@@ -38,7 +38,6 @@ public class NinjaController : MonoBehaviour
             var deadPossition = this.transform.position;
             deadPossition.y = this.transform.position.y - fallingSpeed;
             this.transform.position = deadPossition;
-            //FIXED "Dieing in the Air"
         }
     }
     public void FixedUpdate()
