@@ -32,13 +32,13 @@ public class NinjaController : MonoBehaviour
         {
             this.didClick = true;
         }
-        else if(this.isDead && this.transform.position.y > floorPossition)
+        else if (this.isDead && this.transform.position.y > floorPossition)
         {
             didClick = false;
             var deadPossition = this.transform.position;
             deadPossition.y = this.transform.position.y - fallingSpeed;
             this.transform.position = deadPossition;
-           //FIXED "Dieing in the Air"
+            //FIXED "Dieing in the Air"
         }
     }
     public void FixedUpdate()
@@ -53,7 +53,7 @@ public class NinjaController : MonoBehaviour
             this.rb.AddForce(new Vector2(0, clickSpeed));
 
             var updatedVelocity = this.rb.velocity;
-            if(updatedVelocity.y > this.maxSpeed)
+            if (updatedVelocity.y > this.maxSpeed)
             {
                 updatedVelocity.y = this.maxSpeed;
                 this.rb.velocity = updatedVelocity;
