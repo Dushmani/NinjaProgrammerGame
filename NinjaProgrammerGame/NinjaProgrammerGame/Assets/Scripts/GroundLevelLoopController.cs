@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
-public class LoopController : MonoBehaviour
+using System.Collections;
+
+public class GroundLevelLoopController : MonoBehaviour
 {
+
     private float bossPositionX;
     private float bossPositionY;
 

@@ -8,38 +8,43 @@ public class NinjaRunController : MonoBehaviour
 
     public float forwardSpeed = 15f;
     public float jumpSpeed = 5f;
+    public float halfJumpSpeed;
     public float maxSpeed = 100f;
 
     private bool didClick;
     private bool isDead;
     private bool isGrounded;
-    private bool isInAir;
-    private bool areColliding;
+    private bool isAbleToDD;
 
     public float floorPossition;
 
     public void Start()
     {
         this.rb = this.GetComponent<Rigidbody2D>();
-
-        var floorObj = GameObject.FindGameObjectsWithTag("Floor");
-        floorPossition = floorObj[0].transform.position.y;
-        Debug.Log(floorPossition);
+        this.halfJumpSpeed = this.jumpSpeed / 2;
     }
     public void Update()
     {
          if (Input.GetButtonDown("Fire1") && !this.isDead && this.isGrounded)
          {
              didClick = true;
+             isAbleToDD = true;
          }
-         else if(Input.GetButton("Fire1") && !this.isDead && !this.isGrounded)
+         else if(Input.GetButton("Fire1") && !this.isDead && !this.isGrounded && this.isAbleToDD)
          {
-             didClick = true;
-             isInAir = true;
+             isAbleToDD = true; ;
          }
+        if(this.transform.position.y < 1.85f)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
         //Addd thigs with floor! -za mene si go pi6a!
 
-         Debug.Log(areColliding);
+         Debug.Log(didClick);
     }
 
     public void FixedUpdate()
@@ -49,9 +54,10 @@ public class NinjaRunController : MonoBehaviour
         this.rb.velocity = velocity;
 
 
-        if (didClick && isGrounded)
+        if (didClick && this.isGrounded)
         {
             didClick = false;
+
             this.rb.AddForce(new Vector2(0, jumpSpeed));
 
             var updatedVelocity = this.rb.velocity;
@@ -61,11 +67,13 @@ public class NinjaRunController : MonoBehaviour
                 this.rb.velocity = updatedVelocity;
             }
 
-         }
-        else if (didClick && !isGrounded)
+        }
+        else if (didClick && isAbleToDD)
         {
             didClick = false;
-            this.rb.AddForce(new Vector2(0, jumpSpeed/2));
+            isAbleToDD = false;
+
+            this.rb.AddForce(new Vector2(0, halfJumpSpeed));
 
             var updatedVelocity = this.rb.velocity;
             if (updatedVelocity.y > this.maxSpeed)
@@ -74,13 +82,5 @@ public class NinjaRunController : MonoBehaviour
                 this.rb.velocity = updatedVelocity;
             }
         }
-    }
-    public void OnCollider2DEnter(Collider2D collider)
-    {
-        if (collider.gameObject.CompareTag("Floor"))
-        { 
-            areColliding = true;
-        }
-        Debug.Log(areColliding);
     }
 }
