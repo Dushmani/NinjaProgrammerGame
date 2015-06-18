@@ -4,9 +4,6 @@ using System.Collections;
 public class GroundLevelLoopController : MonoBehaviour
 {
 
-    private float bossPositionX;
-    private float bossPositionY;
-
     private int numberOfBackgrounds;
     private float distanceBetweenBackgrounds;
 
@@ -25,7 +22,6 @@ public class GroundLevelLoopController : MonoBehaviour
         this.numberOfBackgrounds = backgrounds.Length;
         this.numberOfEnemies = enemies.Length;
 
-        RandomizeEnemies(enemies);
 
         if (this.numberOfBackgrounds < 2
             || this.numberOfEnemies < 2)
@@ -45,8 +41,7 @@ public class GroundLevelLoopController : MonoBehaviour
     {
 
         if (collider.CompareTag("Background")
-            || collider.CompareTag("Losh")
-            || collider.CompareTag("Egg"))
+            || collider.CompareTag("Losh"))
         {
 
             var go = collider.gameObject;
@@ -54,31 +49,15 @@ public class GroundLevelLoopController : MonoBehaviour
 
             if (collider.CompareTag("Losh"))
             {
+                float randomX;
+                randomX = Random.RandomRange(-5.5f,5.5f);
                 originalPosition.x +=
                      this.numberOfEnemies
-                     * this.distanceBetweenEnemies;
+                     * this.distanceBetweenEnemies
+                         +randomX;
 
-                float randomY;
-
-                if (this.upperEnemy)
-                {
-                    randomY = Random.Range(1.5f, 3);
-                }
-                else
-                {
-                    randomY = Random.Range(-1, 0.5f);
-                }
-                originalPosition.y = randomY;
-
-                this.upperEnemy = !this.upperEnemy;
             }
-            else if (collider.CompareTag("Egg"))
-            {
-                originalPosition.x =
-                    GameObject.FindGameObjectWithTag("Boss").transform.position.x;
-                originalPosition.y =
-                    GameObject.FindGameObjectWithTag("Boss").transform.position.y;
-            }
+            
             else
             {
                 originalPosition.x

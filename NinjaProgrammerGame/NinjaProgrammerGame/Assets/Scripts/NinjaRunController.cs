@@ -7,7 +7,7 @@ public class NinjaRunController : MonoBehaviour
     private Rigidbody2D rb;
 
     public float forwardSpeed = 15f;
-    public float jumpSpeed = 5f;
+    public float jumpSpeed = 500;
     public float halfJumpSpeed;
     public float maxSpeed = 100f;
 
@@ -15,6 +15,7 @@ public class NinjaRunController : MonoBehaviour
     private bool isDead;
     private bool isGrounded;
     private bool isAbleToDD;
+    private bool didDD;
 
     public float floorPossition;
 
@@ -25,14 +26,9 @@ public class NinjaRunController : MonoBehaviour
     }
     public void Update()
     {
-         if (Input.GetButtonDown("Fire1") && !this.isDead && this.isGrounded)
+         if (Input.GetButtonDown("Fire1") && !this.isDead)
          {
              didClick = true;
-             isAbleToDD = true;
-         }
-         else if(Input.GetButton("Fire1") && !this.isDead && !this.isGrounded && this.isAbleToDD)
-         {
-             isAbleToDD = true; ;
          }
         if(this.transform.position.y < 1.85f)
         {
@@ -42,7 +38,6 @@ public class NinjaRunController : MonoBehaviour
         {
             isGrounded = false;
         }
-        //Addd thigs with floor! -za mene si go pi6a!
 
          Debug.Log(didClick);
     }
@@ -57,7 +52,7 @@ public class NinjaRunController : MonoBehaviour
         if (didClick && this.isGrounded)
         {
             didClick = false;
-
+            isAbleToDD = true;
             this.rb.AddForce(new Vector2(0, jumpSpeed));
 
             var updatedVelocity = this.rb.velocity;
@@ -68,7 +63,7 @@ public class NinjaRunController : MonoBehaviour
             }
 
         }
-        else if (didClick && isAbleToDD)
+        else if (didClick && isAbleToDD && !this.isGrounded)
         {
             didClick = false;
             isAbleToDD = false;
@@ -81,6 +76,10 @@ public class NinjaRunController : MonoBehaviour
                 updatedVelocity.y = this.maxSpeed;
                 this.rb.velocity = updatedVelocity;
             }
+        }
+        else
+        {
+            didClick = false;
         }
     }
 }
