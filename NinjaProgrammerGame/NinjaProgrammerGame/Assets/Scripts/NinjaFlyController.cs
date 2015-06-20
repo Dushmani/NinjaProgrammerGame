@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class NinjaController : MonoBehaviour
+public class NinjaFlyController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;

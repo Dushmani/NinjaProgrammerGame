@@ -10,6 +10,9 @@ public class GroundLevelLoopController : MonoBehaviour
     private int numberOfEnemies;
     private float distanceBetweenEnemies;
 
+    private int numberOfFloors;
+    private float distanceBetweenFloors;
+
     private bool upperEnemy;
 
 
@@ -18,9 +21,11 @@ public class GroundLevelLoopController : MonoBehaviour
 
         var backgrounds = GameObject.FindGameObjectsWithTag("Background");
         var enemies = GameObject.FindGameObjectsWithTag("Losh");
+        var floors = GameObject.FindGameObjectsWithTag("Floor");
 
         this.numberOfBackgrounds = backgrounds.Length;
         this.numberOfEnemies = enemies.Length;
+        this.numberOfFloors = floors.Length;
 
 
         if (this.numberOfBackgrounds < 2
@@ -32,16 +37,20 @@ public class GroundLevelLoopController : MonoBehaviour
             = this.DistanceBetweenObjects(backgrounds);
         this.distanceBetweenEnemies
             = this.DistanceBetweenObjects(enemies);
+        this.distanceBetweenFloors
+            = this.DistanceBetweenObjects(floors);
 
-        Debug.Log(numberOfBackgrounds);
-        Debug.Log(distanceBetweenBackgrounds);
+        Debug.Log(distanceBetweenEnemies);
+        Debug.Log(numberOfEnemies);
+
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
 
         if (collider.CompareTag("Background")
-            || collider.CompareTag("Losh"))
+            || collider.CompareTag("Losh")
+            || collider.CompareTag("Floor"))
         {
 
             var go = collider.gameObject;
@@ -58,12 +67,19 @@ public class GroundLevelLoopController : MonoBehaviour
 
             }
             
-            else
+            else if(collider.CompareTag("Background"))
             {
                 originalPosition.x
                     += this.numberOfBackgrounds
                     * this.distanceBetweenBackgrounds;
             }
+            else if(collider.CompareTag("Floor"))
+            {
+                originalPosition.x
+                    += this.numberOfFloors
+                    * this.distanceBetweenFloors;
+            }
+
             go.transform.position = originalPosition;
 
 

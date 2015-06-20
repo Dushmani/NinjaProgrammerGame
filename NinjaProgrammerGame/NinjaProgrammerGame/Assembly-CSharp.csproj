@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\EggController.cs" />
      <Compile Include="Assets\Scripts\ExitBtnClick.cs" />
+     <Compile Include="Assets\Scripts\FloorController.cs" />
      <Compile Include="Assets\Scripts\GroundLevelLoopController.cs" />
      <Compile Include="Assets\Scripts\HighscoreBtnClick.cs" />
      <Compile Include="Assets\Scripts\LoopController.cs" />

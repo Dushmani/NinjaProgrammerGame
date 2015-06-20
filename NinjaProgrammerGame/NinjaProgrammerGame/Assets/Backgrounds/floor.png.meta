@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 87969980a7c7ae146b766be2b9a7b179
-timeCreated: 1434114281
+timeCreated: 1434802653
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -53,12 +53,12 @@ TextureImporter:
     - name: floor_0
       rect:
         serializedVersion: 2
-        x: 289
+        x: 290
         y: 0
-        width: 223
+        width: 222
         height: 512
-      alignment: 8
-      pivot: {x: 1, y: 0}
+      alignment: 0
+      pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
