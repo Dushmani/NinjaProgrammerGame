@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
-public class NinjaRunController : MonoBehaviour
+public class NinjaRunController1 : MonoBehaviour 
 {
     private Rigidbody2D rb;
     private Animator animator;
     private GameObject floor;
 
-    public float forwardSpeed = 15f;
+    public float forwardSpeed = 7f;
     public float jumpSpeed = 500;
     public float maxSpeed = 100f;
-    public int floorSpeed = -20;
+    public float floorSpeed;
 
     private bool didClick;
     private bool isDead;
@@ -80,15 +79,11 @@ public class NinjaRunController : MonoBehaviour
                 updatedVelocity.y = this.maxSpeed;
                 this.rb.velocity = updatedVelocity;
             }
-        } else if(isDead)
-        {
-            this.rb.AddForce(new Vector2(floorSpeed, 0));
         }
         else
         {
             didClick = false;
         }
-
 
     }
     public void OnCollisionEnter2D(Collision2D collider)
@@ -97,7 +92,7 @@ public class NinjaRunController : MonoBehaviour
         {
             this.isDead = true;
             this.animator.SetBool("NinjaDead", true);
-            forwardSpeed = -2;
+            forwardSpeed = 0;
             Debug.Log("Umre");
         }
 
