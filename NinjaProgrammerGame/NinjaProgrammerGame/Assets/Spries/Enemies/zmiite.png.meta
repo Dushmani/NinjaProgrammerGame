@@ -1,9 +1,61 @@
 fileFormatVersion: 2
 guid: dec393b3e5197c5459e4081672b517e1
-timeCreated: 1434117404
+timeCreated: 1434891620
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: zmiite_0
+    21300002: zmiite_1
+    21300004: zmiite_2
+    21300006: zmiite_3
+    21300008: zmiite_4
+    21300010: zmiite_5
+    21300012: zmiite_6
+    21300014: zmiite_7
+    21300016: zmiite_8
+    21300018: zmiite_9
+    21300020: zmiite_10
+    21300022: zmiite_11
+    21300024: zmiite_12
+    21300026: zmiite_13
+    21300028: zmiite_14
+    21300030: zmiite_15
+    21300032: zmiite_16
+    21300034: zmiite_17
+    21300036: zmiite_18
+    21300038: zmiite_19
+    21300040: zmiite_20
+    21300042: zmiite_21
+    21300044: zmiite_22
+    21300046: zmiite_23
+    21300048: zmiite_24
+    21300050: zmiite_25
+    21300052: zmiite_26
+    21300054: zmiite_27
+    21300056: zmiite_28
+    21300058: zmiite_29
+    21300060: zmiite_30
+    21300062: zmiite_31
+    21300064: zmiite_32
+    21300066: zmiite_33
+    21300068: zmiite_34
+    21300070: zmiite_35
+    21300072: zmiite_36
+    21300074: zmiite_37
+    21300076: zmiite_38
+    21300078: zmiite_39
+    21300080: zmiite_40
+    21300082: zmiite_41
+    21300084: zmiite_42
+    21300086: zmiite_43
+    21300088: zmiite_44
+    21300090: zmiite_45
+    21300092: zmiite_46
+    21300094: zmiite_47
+    21300096: zmiite_48
+    21300098: zmiite_49
+    21300100: zmiite_50
+    21300102: zmiite_51
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +82,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +100,527 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: zmiite_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 694
+        width: 87
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 694
+        width: 86
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_2
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 694
+        width: 86
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_3
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 694
+        width: 84
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 694
+        width: 86
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_5
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 694
+        width: 86
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 694
+        width: 87
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_7
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 694
+        width: 86
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_8
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 694
+        width: 86
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_9
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 694
+        width: 84
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_10
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 694
+        width: 86
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_11
+      rect:
+        serializedVersion: 2
+        x: 1048
+        y: 694
+        width: 86
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 611
+        width: 87
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 611
+        width: 83
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_14
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 611
+        width: 79
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_15
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 611
+        width: 75
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_16
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 611
+        width: 79
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_17
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 611
+        width: 83
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 514
+        width: 76
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_19
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 534
+        width: 19
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_20
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 555
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_21
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 555
+        width: 61
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_22
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 534
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_23
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 534
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_24
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 534
+        width: 40
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_25
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 432
+        width: 87
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_26
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 432
+        width: 83
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 432
+        width: 79
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_28
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 432
+        width: 75
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_29
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 432
+        width: 79
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_30
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 432
+        width: 83
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_31
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 329
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_32
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 221
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_33
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 221
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_34
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 221
+        width: 77
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_35
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 221
+        width: 81
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_36
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 221
+        width: 87
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_37
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 221
+        width: 98
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_38
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 221
+        width: 98
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_39
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 115
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_40
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 115
+        width: 92
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_41
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 115
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_42
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 150
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_43
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 136
+        width: 81
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_44
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 115
+        width: 72
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_45
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 115
+        width: 81
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_46
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 8
+        width: 84
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_47
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 8
+        width: 92
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_48
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 43
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_49
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 8
+        width: 117
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_50
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 8
+        width: 72
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: zmiite_51
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 8
+        width: 81
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

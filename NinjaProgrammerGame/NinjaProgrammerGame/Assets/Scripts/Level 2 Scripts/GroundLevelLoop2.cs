@@ -49,7 +49,8 @@ public class GroundLevelLoop2 : MonoBehaviour {
 
         if (collider.CompareTag("Background")
             || collider.CompareTag("Losh")
-            || collider.CompareTag("Floor"))
+            || collider.CompareTag("Floor")
+            || collider.CompareTag("Egg"))
         {
 
             var go = collider.gameObject;
@@ -77,6 +78,10 @@ public class GroundLevelLoop2 : MonoBehaviour {
                 originalPosition.x
                     += this.numberOfFloors
                     * this.distanceBetweenFloors;
+            }else if(collider.CompareTag("Egg"))
+            {
+                originalPosition.x =
+                   GameObject.FindGameObjectWithTag("Boss").transform.position.x;
             }
 
             go.transform.position = originalPosition;

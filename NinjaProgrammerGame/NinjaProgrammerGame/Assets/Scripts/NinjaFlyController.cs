@@ -6,6 +6,10 @@ public class NinjaFlyController : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
+    private Animator bossAnimator;
+    public GameObject boss;
+    private Rigidbody2D bossRb;
+    private BoxCollider2D boxColl;
 
     private bool didClick;
     private bool isDead;
@@ -19,7 +23,10 @@ public class NinjaFlyController : MonoBehaviour
     public void Start()
     {
         this.rb = this.GetComponent<Rigidbody2D>();
+        this.bossRb = boss.GetComponent<Rigidbody2D>();
         this.animator = this.GetComponent<Animator>();
+        this.bossAnimator = boss.GetComponent<Animator>();
+        this.boxColl = this.GetComponent<BoxCollider2D>();
 
         var floorObj = GameObject.FindGameObjectsWithTag("Floor");
         floorPossition = floorObj[0].transform.position.y;
@@ -60,16 +67,37 @@ public class NinjaFlyController : MonoBehaviour
 
         }
     }
-    public void OnCollisionEnter2D(Collision2D collider)
+    //public void OnCollisionEnter2D(Collision2D collider)
+    //{
+    //    if (collider.gameObject.CompareTag("Losh")
+    //        || collider.gameObject.CompareTag("Egg"))
+    //    {
+
+    //        this.isDead = true;
+    //        this.animator.SetBool("NinjaDead", true);
+    //        forwardSpeed = 0;
+    //    }
+
+
+    //}
+    public void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (collider.gameObject.CompareTag("Losh")
-            || collider.gameObject.CompareTag("Egg"))
+        if (trigger.gameObject.CompareTag("Boss"))
         {
+
+            this.animator.SetBool("didWin", true);
+            bossRb.isKinematic = false;
+            this.forwardSpeed = 0;
+            rb.isKinematic = true;
+        }
+        if (trigger.gameObject.CompareTag("Losh")
+           || trigger.gameObject.CompareTag("Egg"))
+        {
+
             this.isDead = true;
             this.animator.SetBool("NinjaDead", true);
+            boxColl.isTrigger = true;
             forwardSpeed = 0;
         }
-
-
     }
 }

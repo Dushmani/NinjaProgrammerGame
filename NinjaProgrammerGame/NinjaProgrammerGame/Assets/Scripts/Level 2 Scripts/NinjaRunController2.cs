@@ -5,13 +5,17 @@ public class NinjaRunController2 : MonoBehaviour {
 
     private Rigidbody2D rb;
     private Animator animator;
+    private Animator bossAnimator;
     private GameObject floor;
+    public GameObject boss;
 
     public float forwardSpeed = 10f;
     public float jumpSpeed = 600;
     public float doubleJumpSpeed = 650;
     public float maxSpeed = 100f;
     public int floorSpeed = -20;
+    private float playerDeadPossition;
+    private float bossPossition;
 
     private bool didClick;
     private bool isDead;
@@ -20,10 +24,13 @@ public class NinjaRunController2 : MonoBehaviour {
     private bool didDD;
 
 
+
     public void Start()
     {
         this.rb = this.GetComponent<Rigidbody2D>();
         this.animator = this.GetComponent<Animator>();
+        this.bossAnimator = boss.GetComponent<Animator>();
+
     }
     public void Update()
     {
@@ -84,6 +91,10 @@ public class NinjaRunController2 : MonoBehaviour {
         else if (isDead)
         {
             this.rb.AddForce(new Vector2(floorSpeed, 0));
+            if (this.transform.position.x < playerDeadPossition - 10f)
+            {
+                Time.timeScale = 0;
+            }
         }
         else
         {
@@ -94,14 +105,26 @@ public class NinjaRunController2 : MonoBehaviour {
     }
     public void OnCollisionEnter2D(Collision2D collider)
     {
-        if (collider.gameObject.CompareTag("Losh"))
+        if (collider.gameObject.CompareTag("Losh")
+            || collider.gameObject.CompareTag("Egg"))
         {
             this.isDead = true;
             this.animator.SetBool("NinjaDead", true);
-            forwardSpeed = -2;
+            this.playerDeadPossition = this.transform.position.x;
+            forwardSpeed = 0;
             Debug.Log("Umre");
         }
 
 
+    }
+    public void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if (trigger.gameObject.CompareTag("Boss"))
+        {
+
+            this.animator.SetBool("didWin", true);
+            bossAnimator.SetBool("BossDead", true);
+            this.forwardSpeed = 0;
+        }
     }
 }

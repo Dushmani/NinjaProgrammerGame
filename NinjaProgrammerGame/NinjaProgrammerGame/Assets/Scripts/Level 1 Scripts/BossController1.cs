@@ -4,17 +4,24 @@ using System.Collections;
 public class BossController1 : MonoBehaviour {
 
 
-    private float forwardSpeed;
+    public GameObject player;
+    private Animator anim;
+
+    public float forwardSpeed;
 
     public void Start()
     {
         this.forwardSpeed = 0.192f;
 
-        Debug.Log(forwardSpeed);
+        this.anim = GetComponent<Animator>();
     }
 
     public void Update()
     {
+        if (anim.GetBool("BossDead") == true)
+        {
+            this.forwardSpeed = 0;
+        }
     }
 
     public void FixedUpdate()
@@ -25,3 +32,6 @@ public class BossController1 : MonoBehaviour {
 
     }
 }
+
+
+

@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\Level 1 Scripts\NinjaRunController1.cs" />
      <Compile Include="Assets\Scripts\Level 2 Scripts\GroundLevelLoop2.cs" />
      <Compile Include="Assets\Scripts\Level 2 Scripts\NinjaRunController2.cs" />
+     <Compile Include="Assets\Scripts\Level 2 Scripts\StarController.cs" />
      <Compile Include="Assets\Scripts\Level 4 Scripts\Level4BossController.cs" />
      <Compile Include="Assets\Scripts\LoopController.cs" />
      <Compile Include="Assets\Scripts\NinjaFlyController.cs" />
