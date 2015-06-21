@@ -8,7 +8,8 @@ public class NinjaRunController1 : MonoBehaviour
     private GameObject floor;
 
     public float forwardSpeed = 7f;
-    public float jumpSpeed = 500;
+    public float jumpSpeed = 600;
+    public float doubleJumpSpeed = 650;
     public float maxSpeed = 100f;
     public float floorSpeed;
 
@@ -71,7 +72,7 @@ public class NinjaRunController1 : MonoBehaviour
             didClick = false;
             isAbleToDD = false;
 
-            this.rb.AddForce(new Vector2(0, jumpSpeed));
+            this.rb.AddForce(new Vector2(0, doubleJumpSpeed));
 
             var updatedVelocity = this.rb.velocity;
             if (updatedVelocity.y > this.maxSpeed)

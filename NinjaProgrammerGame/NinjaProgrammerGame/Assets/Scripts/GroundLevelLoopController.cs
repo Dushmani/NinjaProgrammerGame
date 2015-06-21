@@ -40,7 +40,7 @@ public class GroundLevelLoopController : MonoBehaviour
         this.distanceBetweenFloors
             = this.DistanceBetweenObjects(floors);
 
-        Debug.Log(distanceBetweenEnemies);
+        Debug.Log(DistanceBetweenObjects(enemies));
         Debug.Log(numberOfEnemies);
 
     }
@@ -94,30 +94,7 @@ public class GroundLevelLoopController : MonoBehaviour
                 - second.transform.position.x);
     }
 
-    private void RandomizeEnemies(GameObject[] enemies)
-    {
-        //FIX FIRST 0 ENEMIES SPAWN
-        int count = 0;
-
-        for (int i = 1; i < enemies.Length; i++)
-        {
-            count++;
-            var currentPipe = enemies[i];
-            float randomY;
-            if (count % 2 == 0) // upper Enemy
-            {
-                randomY = Random.Range(-0.5f, 2);
-            }
-            else // Mark Knight - DOWNPIPE (D-ramiraz remix)
-            {
-                randomY = Random.Range(-2.5f, 0);
-            }
-
-            var pipePosition = currentPipe.transform.position;
-            pipePosition.y = randomY;
-            currentPipe.transform.position = pipePosition;
-        }
-    }
+   
     private float DistanceBetweenObjects(GameObject[] gameObjects)
     {
         float minDistance = float.MaxValue;
