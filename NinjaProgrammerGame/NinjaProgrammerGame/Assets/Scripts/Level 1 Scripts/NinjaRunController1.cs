@@ -126,6 +126,7 @@ public class NinjaRunController1 : MonoBehaviour
             this.animator.SetBool("didWin", true);
             bossAnimator.SetBool("BossDead", true);
             this.forwardSpeed = 0;
+			Application.LoadLevel("Level 2");
         }
     }
 }

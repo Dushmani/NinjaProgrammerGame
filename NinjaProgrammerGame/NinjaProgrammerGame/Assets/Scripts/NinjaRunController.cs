@@ -2,8 +2,8 @@
 using System.Collections;
 using System;
 
-public class NinjaRunController : MonoBehaviour
-{
+public class NinjaRunController : MonoBehaviour //btw ne moga da go mina tva chetvurto nivo
+{                                               //umiram na edno i sushto mqsto :@:@ -pon0
     private Rigidbody2D rb;
     private Animator animator;
     private Animator bossAnimator;
@@ -113,6 +113,7 @@ public class NinjaRunController : MonoBehaviour
             this.playerDeadPossition = this.transform.position.x;
             forwardSpeed = 0;
             Debug.Log("Umre");
+			Application.LoadLevel(Application.loadedLevel);
         }
 
 

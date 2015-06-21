@@ -89,6 +89,8 @@ public class NinjaFlyController : MonoBehaviour
             bossRb.isKinematic = false;
             this.forwardSpeed = 0;
             rb.isKinematic = true;
+			Application.LoadLevel("Level 4");
+
         }
         if (trigger.gameObject.CompareTag("Losh")
            || trigger.gameObject.CompareTag("Egg"))
@@ -98,6 +100,10 @@ public class NinjaFlyController : MonoBehaviour
             this.animator.SetBool("NinjaDead", true);
             boxColl.isTrigger = true;
             forwardSpeed = 0;
+			Application.LoadLevel(Application.loadedLevel); // 22.06.2015 01:42 
+			                                                //imam da pisha po matematika 6 lista 
+			                                                //a sled 6 chasa sum na uchiliste :@:@ -pon0
+			                                                // Reading Code Is Key to Writing Good Code - Steven Harman
         }
     }
 }

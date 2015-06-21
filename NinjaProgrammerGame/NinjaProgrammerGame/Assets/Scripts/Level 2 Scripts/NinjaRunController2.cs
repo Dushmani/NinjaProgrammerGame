@@ -113,6 +113,7 @@ public class NinjaRunController2 : MonoBehaviour {
             this.playerDeadPossition = this.transform.position.x;
             forwardSpeed = 0;
             Debug.Log("Umre");
+			Application.LoadLevel(Application.loadedLevel);
         }
 
 
@@ -125,6 +126,7 @@ public class NinjaRunController2 : MonoBehaviour {
             this.animator.SetBool("didWin", true);
             bossAnimator.SetBool("BossDead", true);
             this.forwardSpeed = 0;
+			Application.LoadLevel("Level 3");
         }
     }
 }
