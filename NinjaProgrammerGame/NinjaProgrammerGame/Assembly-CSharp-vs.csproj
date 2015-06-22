@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Level 4 Scripts\Level4BossController.cs" />
      <Compile Include="Assets\Scripts\Level 4 Scripts\NinjaRunController.cs" />
      <Compile Include="Assets\Scripts\LoopController.cs" />
+     <Compile Include="Assets\Scripts\Menu Scripts\NinjaStartMenuScript.cs" />
      <Compile Include="Assets\Scripts\NinjaFlyController.cs" />
      <Compile Include="Assets\Scripts\PausedMenu.cs" />
      <Compile Include="Assets\Scripts\PlayBtnClick.cs" />
