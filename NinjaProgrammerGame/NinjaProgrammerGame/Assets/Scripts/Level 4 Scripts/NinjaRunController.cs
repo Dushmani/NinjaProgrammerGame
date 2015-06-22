@@ -49,7 +49,6 @@ public class NinjaRunController : MonoBehaviour //btw ne moga da go mina tva che
         {
             isGrounded = false;
             this.animator.SetBool("didJump", true);
-            Debug.Log("skok");
         }
 
     }

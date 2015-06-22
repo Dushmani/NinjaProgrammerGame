@@ -40,8 +40,8 @@ public class GroundLevelLoopController : MonoBehaviour
         this.distanceBetweenFloors
             = this.DistanceBetweenObjects(floors);
 
-        Debug.Log(DistanceBetweenObjects(enemies));
-        Debug.Log(numberOfEnemies);
+        Debug.Log(distanceBetweenBackgrounds);
+        Debug.Log(numberOfBackgrounds);
 
     }
 
@@ -110,8 +110,8 @@ public class GroundLevelLoopController : MonoBehaviour
         for (int i = 1; i < gameObjects.Length; i++)
         {
             var currentDistance = Mathf.Abs(
-                gameObjects[i - 1].transform.position.x
-                - gameObjects[i].transform.position.x);
+                gameObjects[i].transform.position.x
+                - gameObjects[i - 1].transform.position.x);
 
             if (currentDistance < minDistance)
             {
