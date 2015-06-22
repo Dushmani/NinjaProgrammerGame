@@ -49,7 +49,6 @@ public class NinjaRunController1 : MonoBehaviour
         {
             isGrounded = false;
             this.animator.SetBool("didJump", true);
-            Debug.Log("skok");
         }
 
     }
@@ -109,11 +108,8 @@ public class NinjaRunController1 : MonoBehaviour
         if (collider.gameObject.CompareTag("Losh")
             || collider.gameObject.CompareTag("Egg"))
         {
-            this.isDead = true;
-            this.animator.SetBool("NinjaDead", true);
-            this.playerDeadPossition = this.transform.position.x;
-            forwardSpeed = 0;
-            Debug.Log("Umre");
+            StartCoroutine(DieingLogistic());
+
         }
 
 
@@ -123,10 +119,25 @@ public class NinjaRunController1 : MonoBehaviour
         if (trigger.gameObject.CompareTag("Boss"))
         {
 
-            this.animator.SetBool("didWin", true);
-            bossAnimator.SetBool("BossDead", true);
-            this.forwardSpeed = 0;
-			Application.LoadLevel("Level 2");
+            StartCoroutine(WinningLogistic());
         }
+    }
+    public IEnumerator DieingLogistic()
+    {
+        this.isDead = true;
+        this.animator.SetBool("NinjaDead", true);
+        forwardSpeed = 0;
+        Debug.Log("Umre");
+        yield return new WaitForSeconds(2);
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public IEnumerator WinningLogistic()
+    {
+        this.animator.SetBool("didWin", true);
+        bossAnimator.SetBool("BossDead", true);
+        this.forwardSpeed = 0;
+        yield return new WaitForSeconds(2);
+        Application.LoadLevel("Level 2");
     }
 }

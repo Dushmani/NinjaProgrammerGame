@@ -67,43 +67,43 @@ public class NinjaFlyController : MonoBehaviour
 
         }
     }
-    //public void OnCollisionEnter2D(Collision2D collider)
-    //{
-    //    if (collider.gameObject.CompareTag("Losh")
-    //        || collider.gameObject.CompareTag("Egg"))
-    //    {
-
-    //        this.isDead = true;
-    //        this.animator.SetBool("NinjaDead", true);
-    //        forwardSpeed = 0;
-    //    }
-
-
-    //}
+   
     public void OnTriggerEnter2D(Collider2D trigger)
     {
         if (trigger.gameObject.CompareTag("Boss"))
         {
-
-            this.animator.SetBool("didWin", true);
-            bossRb.isKinematic = false;
-            this.forwardSpeed = 0;
-            rb.isKinematic = true;
-			Application.LoadLevel("Level 4");
+            StartCoroutine(WinningLogistic());
 
         }
         if (trigger.gameObject.CompareTag("Losh")
            || trigger.gameObject.CompareTag("Egg"))
         {
 
-            this.isDead = true;
-            this.animator.SetBool("NinjaDead", true);
-            boxColl.isTrigger = true;
-            forwardSpeed = 0;
-			Application.LoadLevel(Application.loadedLevel); // 22.06.2015 01:42 
-			                                                //imam da pisha po matematika 6 lista 
-			                                                //a sled 6 chasa sum na uchiliste :@:@ -pon0
-			                                                // Reading Code Is Key to Writing Good Code - Steven Harman
+            StartCoroutine(DieingLogistic());                                                   
+            // 22.06.2015 01:42 
+			 //imam da pisha po matematika 6 lista 
+			//a sled 6 chasa sum na uchiliste :@:@ -pon0
+			// Reading Code Is Key to Writing Good Code - Steven Harman
         }
+    }
+    public IEnumerator DieingLogistic()
+    {
+        this.isDead = true;
+        this.animator.SetBool("NinjaDead", true);
+        boxColl.isTrigger = true;
+        forwardSpeed = 0;
+        yield return new WaitForSeconds(2);
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public IEnumerator WinningLogistic()
+    {
+        this.animator.SetBool("didWin", true);
+        bossRb.isKinematic = false;
+        this.forwardSpeed = 0;
+        rb.isKinematic = true;
+        yield return new WaitForSeconds(2);
+
+        Application.LoadLevel("Level 4");
     }
 }

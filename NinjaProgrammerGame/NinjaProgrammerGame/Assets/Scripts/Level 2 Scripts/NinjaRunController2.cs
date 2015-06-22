@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NinjaRunController2 : MonoBehaviour {
+public class NinjaRunController2 : MonoBehaviour
+{
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -14,6 +15,7 @@ public class NinjaRunController2 : MonoBehaviour {
     public float doubleJumpSpeed = 650;
     public float maxSpeed = 100f;
     public int floorSpeed = -20;
+    private float seconds = 3f;
     private float playerDeadPossition;
     private float bossPossition;
 
@@ -108,12 +110,8 @@ public class NinjaRunController2 : MonoBehaviour {
         if (collider.gameObject.CompareTag("Losh")
             || collider.gameObject.CompareTag("Egg"))
         {
-            this.isDead = true;
-            this.animator.SetBool("NinjaDead", true);
-            this.playerDeadPossition = this.transform.position.x;
-            forwardSpeed = 0;
-            Debug.Log("Umre");
-			Application.LoadLevel(Application.loadedLevel);
+            StartCoroutine(DieingLogistic());
+
         }
 
 
@@ -123,10 +121,25 @@ public class NinjaRunController2 : MonoBehaviour {
         if (trigger.gameObject.CompareTag("Boss"))
         {
 
-            this.animator.SetBool("didWin", true);
-            bossAnimator.SetBool("BossDead", true);
-            this.forwardSpeed = 0;
-			Application.LoadLevel("Level 3");
+            StartCoroutine(WinningLogistic());
         }
+    }
+    public IEnumerator DieingLogistic()
+    {
+        this.isDead = true;
+        this.animator.SetBool("NinjaDead", true);
+        forwardSpeed = 0;
+        Debug.Log("Umre");
+        yield return new WaitForSeconds(2);
+        Application.LoadLevel(Application.loadedLevel);
+    }
+
+    public IEnumerator WinningLogistic()
+    {
+        this.animator.SetBool("didWin", true);
+        bossAnimator.SetBool("BossDead", true);
+        this.forwardSpeed = 0;
+        yield return new WaitForSeconds(2);
+        Application.LoadLevel("Level 3");
     }
 }
