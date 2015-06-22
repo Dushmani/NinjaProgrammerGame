@@ -116,6 +116,8 @@ public class NinjaRunController : MonoBehaviour //btw ne moga da go mina tva che
             {
                 Time.timeScale = 0;
             }
+            Application.LoadLevel("GameOver");
+            
         }
     }
     public void OnCollisionEnter2D(Collision2D collider)
